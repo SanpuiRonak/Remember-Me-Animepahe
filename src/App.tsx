@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Item from './components/Item';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { useChromeStorageSync } from 'use-chrome-storage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [list, setList] = useChromeStorageSync('trackingList', []);
+
+  return (<ul>
+    {list.map((anime: string) =>
+      <Item key={anime} animeName={anime} />
+    )}
+  </ul>)
+
+
 }
 
 export default App;

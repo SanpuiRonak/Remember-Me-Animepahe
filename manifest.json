@@ -1,0 +1,27 @@
+{
+    "name": "Remeber Me AnimePahe",
+    "description": "Extension For Quick Resuming on animepahe",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "build/index.html"
+    },
+    "permissions": [
+        "storage",
+        "scripting"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://animepahe.com/*"
+            ],
+            "js": [
+                "script.ts"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "host_permissions": [
+        "*://*/"
+    ]
+}
