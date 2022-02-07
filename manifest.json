@@ -8,16 +8,28 @@
     },
     "permissions": [
         "storage",
-        "scripting"
+        "scripting",
+        "tabs"
     ],
     "content_scripts": [
+        {
+            "matches": [
+                "https://animepahe.com/play/*/*"
+            ],
+            "js": [
+                "episodeTracker.js"
+            ],
+            "all_frames": true,
+            "run_at": "document_end"
+        },
         {
             "matches": [
                 "https://animepahe.com/*"
             ],
             "js": [
-                "script.ts"
+                "resume.js"
             ],
+            "all_frames": true,
             "run_at": "document_end"
         }
     ],
