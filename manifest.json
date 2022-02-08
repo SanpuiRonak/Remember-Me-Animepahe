@@ -14,7 +14,8 @@
     "content_scripts": [
         {
             "matches": [
-                "https://animepahe.com/play/*/*"
+                "https://animepahe.com/play/*/*",
+                "https://kwik.cx/*"
             ],
             "js": [
                 "episodeTracker.js"
