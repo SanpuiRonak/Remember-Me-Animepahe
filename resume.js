@@ -7,8 +7,6 @@ const params = Object.fromEntries(urlSearchParams.entries());
 
 if (params.resAnime && params.resEp && params.resTime) {
     const href = document.querySelector(`a[title="${params.resAnime}"]`).href;
-
-
     window.location.replace(href + `?resEp=${params.resEp}&resTime=${params.resTime}`);
 }
 else if (params.resEp && params.resTime) {
@@ -17,7 +15,6 @@ else if (params.resEp && params.resTime) {
 
     const pollTimer = setInterval(() => {
         playTags = document.querySelectorAll('a.play')
-        console.log("set", playTags);
         if (playTags.length !== 0) {
             //list loaded
             clearInterval(pollTimer);
@@ -39,8 +36,6 @@ else if (params.resTime) {
     document.querySelector('div.click-to-load').click();
     const poller = setInterval(() => {
         document.querySelector('iframe').contentWindow.postMessage({ payload:params.resTime , poller}, '*');
-        console.log("polling, resume");
-
     }, 1000)
 
 }
