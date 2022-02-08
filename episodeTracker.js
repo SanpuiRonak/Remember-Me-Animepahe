@@ -9,21 +9,29 @@ if (window.location !== window.parent.location) {
 
     window.onmessage = (e) => {
         //Send succes to clearInterval
-        window.top.postMessage('recieved-name', '*')
-        animeName = e.data;
-        console.log("recieved", e.data);
+        console.log(e.data);
+        window.top.postMessage(e.data.poller, "*")
+        debugger
+        if (!isNaN(e.data.payload)) {
+            vid.currentTime = e.data.payload;
+        }
+        else {
 
-        //set time tracker
-        chrome.storage.sync.get([animeName], (anime) => {
-            setInterval(() => {
-                //update the time
-                // debugger;
-                console.log(anime, anime[animeName]);
+            animeName = e.data.payload;
+            console.log("recieved", e.data);
+            //set time tracker
+            chrome.storage.sync.get([animeName], (anime) => {
+                setInterval(() => {
+                    //update the time
+                    // debugger;
+                    console.log("tracker", vid, anime);
 
-                anime[animeName].time = vid.currentTime;
-                chrome.storage.sync.set({ [animeName]: anime[animeName] });
-            }, 5000)
-        });
+                    anime[animeName].time = vid.currentTime;
+                    chrome.storage.sync.set({ [animeName]: anime[animeName] });
+                }, 5000)
+            });
+        }
+
     }
 }
 
@@ -66,17 +74,16 @@ if (h1) {
         //In kwikz iframe tarck current time
 
         const poller = setInterval(() => {
-            document.querySelector('iframe').contentWindow.postMessage(animeName, '*');
+            document.querySelector('iframe').contentWindow.postMessage({ payload: animeName, poller }, '*');
+            console.log("polling, eT");
         }, 1000)
+        window.onmessage = (e) => {
+            console.log("clearing, ", e.data);
 
-        window.onmessage = function (e) {
-            console.log("body recieved",);
-
-            if (e.data == 'recieved-name') {
-                console.log("cleared");
-                clearInterval(poller);
+            if (!isNaN(e.data)) {
+                clearInterval(e.data);
             }
-        };
+        }
 
     }
 }

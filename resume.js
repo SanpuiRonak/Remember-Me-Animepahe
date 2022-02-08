@@ -4,19 +4,8 @@ const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 
 
-if (window.location !== window.parent.location) {
 
-    const vid = document.querySelector('video');
-
-    window.onmessage = (e) => {
-        //Send succes to clearInterval
-        window.top.postMessage('recieved-time', '*')
-        //set time tracker
-        vid.currentTime = e.data;
-    }
-}
-
-else if (params.resAnime && params.resEp && params.resTime) {
+if (params.resAnime && params.resEp && params.resTime) {
     const href = document.querySelector(`a[title="${params.resAnime}"]`).href;
 
 
@@ -49,13 +38,10 @@ else if (params.resEp && params.resTime) {
 else if (params.resTime) {
     document.querySelector('div.click-to-load').click();
     const poller = setInterval(() => {
-        document.querySelector('iframe').contentWindow.postMessage(params.resTime, '*');
+        document.querySelector('iframe').contentWindow.postMessage({ payload:params.resTime , poller}, '*');
+        console.log("polling, resume");
+
     }, 1000)
 
-    window.onmessage = function (e) {
-        if (e.data == 'recieved-time') {
-            clearInterval(poller);
-        }
-    };
 }
 
