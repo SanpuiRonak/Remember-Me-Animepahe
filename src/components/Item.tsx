@@ -9,7 +9,7 @@ export default function Item(props: Props) {
     const [{ episode, time }] = useChromeStorageSync(props.animeName, -1);
 
     const goToAnime = (event: React.MouseEvent<HTMLElement>) => {
-        chrome.tabs.create({ url: `https://animepahe.com/anime?resAnime=${props.animeName}&resEp=${episode}&resTime=${time}` })
+        window.open(`https://animepahe.com/anime?resAnime=${props.animeName}&resEp=${episode}&resTime=${time}`, '_blank')
     }
 
     const delAnime = () => {

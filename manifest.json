@@ -8,8 +8,7 @@
     },
     "permissions": [
         "storage",
-        "scripting",
-        "tabs"
+        "scripting"
     ],
     "content_scripts": [
         {
