@@ -5,11 +5,11 @@ import { useChromeStorageSync } from 'use-chrome-storage';
 function App() {
 
   const [list] = useChromeStorageSync('trackingList', []);
-  return (<ul>
-    {list.map((anime: string) =>
-      <Item key={anime} animeName={anime} />
+  return (<div className='root'>
+    {list.map((anime: { name: string, date: Date }) =>
+      <Item key={anime.name} animeName={anime.name} />
     )}
-  </ul>)
+  </div>)
 
 
 }

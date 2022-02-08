@@ -58,17 +58,13 @@ if (h1) {
         //add @animeName to tarckingList
         chrome.storage.sync.get({ 'trackingList': [] }, ({ trackingList }) => {
 
-            const newList = trackingList;
-            const isPresent = trackingList.find((name) => name === animeName);
+            const newList = trackingList.filter(({ name }) => name !== animeName);
 
-            if (isPresent) return;
+            newList.push({ name: animeName, date: Date.now() });
 
-            newList.push(animeName);
-            console.log(newList);
+            newList.sort((a, b) => b.date - a.date)
 
-            chrome.storage.sync.set({ 'trackingList': newList }, () => {
-                console.log("pushed " + animeName);
-            })
+            chrome.storage.sync.set({ 'trackingList': newList })
         })
 
         //In kwikz iframe tarck current time

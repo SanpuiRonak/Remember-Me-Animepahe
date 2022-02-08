@@ -1,6 +1,5 @@
-
 import { useChromeStorageSync } from 'use-chrome-storage';
-import cheerio from 'cheerio';
+import "../Item.css"
 
 type Props = {
     animeName: string,
@@ -14,12 +13,15 @@ export default function Item(props: Props) {
     }
 
     return (
-
-        <li>
-            {props.animeName + ' ' + episode}
-            <button onClick={goToAnime} >Go</button>
-        </li>
-
+        <div className="container">
+            <span>
+                {props.animeName + ' ' + episode}
+            </span>
+            <img
+                src="play_button.svg"
+                onClick={goToAnime}
+            />
+        </div>
 
     );
 }

@@ -1,0 +1,17 @@
+img{
+    height: 20px;
+    width: 20px;
+    margin-left: 2px ;
+}
+span{
+    /* height: 100px; */
+    /* width: 20px; */
+    white-space:nowrap;
+    display:inline-block;
+}
+
+.container{
+    display: flex;
+    width: "100%";
+    margin-left: auto;
+}
