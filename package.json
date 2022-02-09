@@ -22,7 +22,8 @@
     "react-build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build": "npm run react-build && rm -rf ./static && mv build/static ./static"
+    "build": "npm run react-build && rm -rf ./static && mv build/static ./static",
+    "build_prod": "npm run build && cp -a episodeTracker.js resume.js manifest.json build/ static/ RememberMeAnimePahe/"
   },
   "eslintConfig": {
     "extends": [
