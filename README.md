@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+https://user-images.githubusercontent.com/54654681/153129785-1ba6e7b3-a2d1-4d38-b7cf-bded0aa92814.mp4
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# How to use this extension
 
-## Available Scripts
+Download and unzip folder from [releases](https://github.com/SanpuiRonak/Remember-Me-Animepahe/releases/tag/v1.0.0) section 
 
-In the project directory, you can run:
+![image](https://user-images.githubusercontent.com/54654681/153129936-7bfbd196-28e0-4936-8098-45db7fb907a6.png)
 
-### `npm start`
+Enable Developer Mode  at ```chrome://extensions/```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![image](https://user-images.githubusercontent.com/54654681/153041469-f9807565-1e7b-4701-9f34-6cc12c4cbeac.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Then click ```Load Unpacked``` and point to the unzipped directory
 
-### `npm test`
+![image](https://user-images.githubusercontent.com/54654681/153041689-c5ac6c8a-7a38-48aa-8703-dbc5d8f9a19e.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# How to build
+```
+>git clone https://github.com/SanpuiRonak/Remember-Me-Animepahe
+>cd Remember-Me-Animepahe
+>npm i
+>npm run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Enable Developer Mode  at ```chrome://extensions/```
 
-### `npm run eject`
+![image](https://user-images.githubusercontent.com/54654681/153041469-f9807565-1e7b-4701-9f34-6cc12c4cbeac.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Then click ```Load Unpacked``` and point to the cloned directory
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![image](https://user-images.githubusercontent.com/54654681/153041689-c5ac6c8a-7a38-48aa-8703-dbc5d8f9a19e.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
