@@ -9,7 +9,7 @@ if (window.location !== window.parent.location) {
     window.onmessage = (e) => {
         //Send succes to clearInterval
         window.top.postMessage(e.data.poller, "*")
-        debugger
+
         if (!isNaN(e.data.payload)) {
             vid.currentTime = e.data.payload;
         }
@@ -20,7 +20,6 @@ if (window.location !== window.parent.location) {
             chrome.storage.sync.get([animeName], (anime) => {
                 setInterval(() => {
                     //update the time
-                    // debugger;
                     anime[animeName].time = vid.currentTime;
                     chrome.storage.sync.set({ [animeName]: anime[animeName] });
                 }, 5000)
